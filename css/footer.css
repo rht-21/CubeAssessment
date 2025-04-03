@@ -85,8 +85,14 @@ footer {
 
 .footer-btn {
   padding: 8px 12px;
-  color: #dea453;
-  border: 1px solid white;
+  color: black;
+  border: 0.5px solid #dea453;
+  background-color: #dea453;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  color: white;
 }
 
 footer > h6 {

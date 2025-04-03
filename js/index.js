@@ -1,35 +1,31 @@
-// JavaScript (index.js)
+// Selecting DOM elements
 const searchBar = document.getElementById("search-bar");
 const searchBtn = document.getElementById("search-btn");
 const navList = document.getElementById("nav-list");
 const hamburger = document.getElementById("hamburger");
+const acc = document.getElementsByClassName("faq-accordion");
 
+// Toggle search bar and navigation list visibility
 searchBtn.addEventListener("click", () => {
   searchBar.classList.toggle("hidden");
   navList.classList.toggle("hidden");
 });
 
+// Toggle mobile navigation menu
 hamburger.addEventListener("click", () => {
   navList.classList.toggle("nav-open");
 });
 
-var acc = document.getElementsByClassName("faq-accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
+// FAQ Accordion Functionality
+Array.from(acc).forEach((accordion) => {
+  accordion.addEventListener("click", function () {
     this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
+    const panel = this.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
   });
-}
+});
 
-// Product Image Handling
-
+// Product Image Carousel Functionality
 document.addEventListener("DOMContentLoaded", () => {
   const mainImage = document.querySelector(".product-img");
   const thumbnails = document.querySelectorAll(".product-other-img img");
@@ -41,43 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const dots = document.querySelectorAll(".dot");
 
-  // Store the original image at index 0, then add the thumbnails
   let images = [mainImage.src, ...Array.from(thumbnails).map((img) => img.src)];
   let currentIndex = 0;
 
   function updateImage(index) {
     mainImage.src = images[index];
-
-    // Update active dot
     dots.forEach((dot) => (dot.style.backgroundColor = "transparent"));
     dots[index].style.backgroundColor = "#000";
-
     currentIndex = index;
   }
 
-  rightArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage(currentIndex);
-  });
+  rightArrow.addEventListener("click", () =>
+    updateImage((currentIndex + 1) % images.length)
+  );
+  leftArrow.addEventListener("click", () =>
+    updateImage((currentIndex - 1 + images.length) % images.length)
+  );
 
-  leftArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage(currentIndex);
-  });
+  dots.forEach((dot, index) =>
+    dot.addEventListener("click", () => updateImage(index))
+  );
+  thumbnails.forEach((thumbnail, index) =>
+    thumbnail.addEventListener("click", () => updateImage(index + 1))
+  );
 
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => updateImage(index));
-  });
-
-  thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener("click", () => updateImage(index + 1)); // Offset by 1 since index 0 is original
-  });
-
-  updateImage(0); // Start with the original image
+  updateImage(0);
 });
 
-// Update Add to Card Button
-document.addEventListener("DOMContentLoaded", function () {
+// Update Add to Cart Button based on selected options
+document.addEventListener("DOMContentLoaded", () => {
   const flavorOptions = document.querySelectorAll("input[name='flavor']");
   const subscriptionOptions = document.querySelectorAll(
     "input[name='subscription']"
@@ -91,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedSubscription = document.querySelector(
       "input[name='subscription']:checked"
     ).id;
-
     const cartLink = `product.html?flavor=${selectedFlavor}&subscription=${selectedSubscription}`;
     addToCartButton.setAttribute(
       "onclick",
@@ -105,14 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
   subscriptionOptions.forEach((option) =>
     option.addEventListener("change", updateCartLink)
   );
-
-  // Initialize the cart link on page load
   updateCartLink();
 });
 
-// Percentage Increase on View
-
-document.addEventListener("DOMContentLoaded", function () {
+// Percentage Counter Animation on Scroll
+document.addEventListener("DOMContentLoaded", () => {
   function animateCounter(id, target) {
     let counter = 0;
     const element = document.getElementById(id);
@@ -121,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const interval = setInterval(() => {
       counter += increment;
       element.textContent = Math.round(counter) + "%";
-
       if (counter >= target) {
         element.textContent = target + "%";
         clearInterval(interval);
@@ -131,13 +114,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function checkVisibility() {
     const section = document.querySelector(".percentage");
-    const rect = section.getBoundingClientRect();
+    if (section.getBoundingClientRect().top < window.innerHeight) {
+      [
+        { id: "energy-percentage", value: 84 },
+        { id: "focused-percentage", value: 78 },
+        { id: "calmness-percentage", value: 89 },
+        { id: "wellness-percentage", value: 90 },
+      ].forEach(({ id, value }) => animateCounter(id, value));
 
-    if (rect.top < window.innerHeight && rect.bottom >= 0) {
-      animateCounter("energy-percentage", 84);
-      animateCounter("focused-percentage", 78);
-      animateCounter("calmness-percentage", 89);
-      animateCounter("wellness-percentage", 90);
       window.removeEventListener("scroll", checkVisibility);
     }
   }
@@ -146,9 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
   checkVisibility();
 });
 
-// Reviews
-
-document.addEventListener("DOMContentLoaded", function () {
+// Review Carousel Functionality
+document.addEventListener("DOMContentLoaded", () => {
   const carousel = document.querySelector(".review-carousel");
   const leftArrow = document.querySelector(
     ".review-header img[alt='Left Carousel']"
@@ -158,21 +141,21 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   function scrollCarousel(direction) {
-    const scrollAmount = 300; // Adjust this based on card width
+    const scrollAmount = 300;
     carousel.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
   }
 
   leftArrow.addEventListener("click", () => scrollCarousel(-1));
   rightArrow.addEventListener("click", () => scrollCarousel(1));
 
-  // Enable horizontal scrolling with mouse wheel
   carousel.addEventListener("wheel", (event) => {
     event.preventDefault();
     carousel.scrollBy({ left: event.deltaY, behavior: "smooth" });
   });
 
-  // Make the carousel scrollable
-  carousel.style.display = "flex";
-  carousel.style.overflowX = "auto";
-  carousel.style.scrollSnapType = "x mandatory";
+  Object.assign(carousel.style, {
+    display: "flex",
+    overflowX: "auto",
+    scrollSnapType: "x mandatory",
+  });
 });
