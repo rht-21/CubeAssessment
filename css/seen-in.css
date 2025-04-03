@@ -1,0 +1,56 @@
+.seen-in {
+  padding: 3rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.seen-in h5 {
+  font-family: "NewRailAlphabet-Bold";
+}
+
+.seen-in-grid {
+  display: grid;
+  place-items: start;
+  gap: 3rem;
+  grid-template-columns: repeat(5, auto);
+}
+
+.seen-in-grid img {
+  height: 2rem;
+  width: auto;
+}
+
+@media screen and (max-width: 1400px) {
+  .seen-in {
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
+  .seen-in-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 997px) {
+  .seen-in-grid {
+    width: 100%;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .seen-in-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .seen-in-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,0 +1,156 @@
+@font-face {
+  font-family: NewRailAlphabet;
+  src: url("/assets/fonts/NewRailAlphabet-White.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: NewRailAlphabet-Bold;
+  src: url("/assets/fonts/NewRailAlphabet-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: NewRailAlphabet-Serif;
+  src: url("/assets/fonts/NewRailAlphabet-Light.otf");
+  font-weight: light;
+  font-style: normal;
+}
+
+:root {
+  --color-header-bg: #322d2d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "NewRailAlphabet", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@media screen and (max-width: 1154px) {
+  nav {
+    padding: 1.5rem 2rem !important;
+  }
+  .promo-header {
+    padding: 0 2rem !important;
+  }
+  .padding-config {
+    padding: 4rem 2rem !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  nav {
+    padding: 1.5rem 1rem !important;
+  }
+  .promo-header {
+    padding: 0 1rem !important;
+  }
+  .padding-config {
+    padding: 1.5rem 0.5rem !important;
+  }
+}
+
+/* Utility */
+
+.hidden {
+  display: none !important;
+}
+
+.nav-open {
+  left: 0 !important;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    45deg,
+    #caa648,
+    #d5b147,
+    #e4c267,
+    #e2c065,
+    #dbb95e,
+    #d0ae52,
+    #c09f41,
+    #bb9a3c
+  );
+  padding: 0 1rem;
+  height: 2.5rem;
+  width: fit-content;
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 24px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 1rem;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+h1 {
+  font-size: clamp(2rem, -2.9553rem + 7.9523vw, 4.5rem);
+}
+h2 {
+  font-size: clamp(1.5rem, -2.4642rem + 6.3618vw, 3.5rem);
+}
+h3 {
+  font-size: clamp(1rem, 0.2301rem + 3.2415vw, 2.25rem);
+}
+h4 {
+  font-size: clamp(0.75rem, -1.0761rem + 10.4348vw, 1.5rem);
+}
+h5 {
+  font-size: clamp(1rem, 0.5045rem + 0.7952vw, 1.25rem);
+}
+h6 {
+  font-size: 17px;
+}
+p {
+  font-size: clamp(0.75rem, 0.05rem + 4vw, 1rem);
+}
+
+/* Header */
+
+.promo-header {
+  background-color: var(--color-header-bg);
+  font-size: 0.8rem;
+  padding: 0 5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 2.5rem;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+/* Main Content */
+
+.main-wrapper {
+  background: linear-gradient(#f3f3f3d4, #b8b8b88f, #f3f3f321), #ffffff;
+  width: 100%;
+}

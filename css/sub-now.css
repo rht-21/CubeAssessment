@@ -1,0 +1,64 @@
+.sub-now {
+  padding: 5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.sub-now-div {
+  background: url("/assets/images/sub-now.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sub-now-div h6 {
+  background: linear-gradient(45deg, #9e6718, #ffb545);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+}
+
+.sub-now-div h3 {
+  max-width: 500px;
+}
+
+.sub-now-tags {
+  display: flex;
+  max-width: 430px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sub-now-tag {
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  background-color: #d6d5d5;
+  color: #322d2d;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+}
+
+@media screen and (max-width: 630px) {
+  .sub-now-div {
+    background-position: right;
+    padding: 1rem;
+  }
+  .sub-now-tags {
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .sub-now-div h3 {
+    font-size: clamp(1.5rem, -0.6556rem + 9.0762vw, 3rem) !important;
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Selection</title>
+  </head>
+  <body>
+    <h1>Selected Product</h1>
+    <p id="product-details"></p>
+
+    <script>
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+          flavor: params.get("flavor") || "Not selected",
+          subscription: params.get("subscription") || "Not selected",
+        };
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const { flavor, subscription } = getQueryParams();
+        document.getElementById(
+          "product-details"
+        ).textContent = `Flavor: ${flavor}, Subscription: ${subscription}`;
+      });
+    </script>
+  </body>
+</html>

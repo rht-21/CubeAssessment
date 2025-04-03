@@ -1,0 +1,159 @@
+.footer {
+  padding: 5rem;
+  background-color: #322d2d;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-div {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-div > div:first-child {
+  flex: 1;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  max-width: 500px;
+}
+
+.footer-links {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: white;
+  gap: 1.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  color: white;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1.5rem;
+  flex: 1;
+  color: white;
+  margin-left: 5rem;
+  max-width: 500px;
+}
+
+.footer-newsletter h6 {
+  font-family: "NewRailAlphabet-Bold";
+  background: linear-gradient(45deg, #a27533, #fac568);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-newsletter > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.footer-newsletter div input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.footer-btn {
+  padding: 8px 12px;
+  color: #dea453;
+  border: 1px solid white;
+}
+
+footer > h6 {
+  background: linear-gradient(45deg, #9e6718, #ffb545);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-size: small;
+}
+
+@media screen and (max-width: 997px) {
+  footer {
+    align-items: center;
+  }
+
+  .footer-div {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .footer-div > div:first-child {
+    flex-direction: column;
+    max-width: 997px;
+    gap: 4rem;
+  }
+
+  .socials {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-links {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-newsletter {
+    align-items: center;
+    margin-left: 0;
+    max-width: 500px;
+  }
+
+  .footer-newsletter small {
+    text-align: center;
+    max-width: 500px;
+  }
+
+  footer > h6 {
+    text-align: center;
+    max-width: 997px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  footer > img {
+    width: 70vw;
+  }
+  .footer-newsletter {
+    max-width: 300px;
+  }
+
+  .footer-newsletter > div {
+    flex-direction: column;
+  }
+}

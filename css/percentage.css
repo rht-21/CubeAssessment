@@ -1,0 +1,42 @@
+.percentage {
+  padding: 3rem 5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/percentage-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: start;
+  gap: 1rem;
+  position: relative;
+}
+
+.percentage div {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.percentage div h3 {
+  font-family: "NewRailAlphabet-Bold";
+}
+
+@media screen and (max-width: 776px) {
+  .percentage {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
+
+  .percentage div h3 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .percentage {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

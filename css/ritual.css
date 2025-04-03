@@ -1,0 +1,76 @@
+.ritual {
+  padding: 5rem;
+  display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.left-ritual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.left-ritual > p {
+  margin-top: -1rem;
+  max-width: 500px;
+}
+
+.ritual-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.ritual-highlight {
+  display: flex;
+  align-items: start;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.ritual-highlight h2 {
+  width: 50px;
+  text-align: center;
+}
+
+.ritual-highlight > div > h4 {
+  background: linear-gradient(45deg, #9e6718, #ffb545);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "NewRailAlphabet-Bold";
+  margin-bottom: 8px;
+}
+
+.ritual-img img {
+  width: clamp(25rem, -2.254rem + 43.7376vw, 38.75rem);
+}
+
+@media screen and (max-width: 878px) {
+  .ritual {
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .left-ritual h3 {
+    font-size: clamp(1.5rem, -0.6556rem + 9.0762vw, 3rem) !important;
+  }
+
+  .ritual-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 70vw;
+      min-width: 250px;
+    }
+  }
+}
